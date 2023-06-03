@@ -1,4 +1,5 @@
 const { City } = require('../models/index');
+const {Op} = require('sequelize');
 
 
 class CityRepository {
@@ -11,8 +12,7 @@ class CityRepository {
             return city;
         } catch (error) {
             console.log("something went wrong in the repository layer ");
-            throw (error);
-
+            throw {error};
         }
     }
 
@@ -26,7 +26,7 @@ class CityRepository {
             return true;
         } catch (error) {
             console.log("something went wrong in the repository layer ");
-            throw (error);
+            throw {error};
         }
     }
 
@@ -37,10 +37,13 @@ class CityRepository {
                     id: cityId
                 }
             });
+            // const city = await City.findByPk(cityId);
+            // city.name = data.name ;
+            // await   city.save();
             return city;
         } catch (error) {
             console.log("something went wrong in the repository layer ");
-            throw (error);
+            throw {error};
 
         }
     }
@@ -48,11 +51,31 @@ class CityRepository {
 
     async getCity(cityId) {
         try {
-            const city = await City.findByPk(cityId);
-            return city ;
+            const city= await City.findByPk(cityId);
+            // const cit1 = await City.findByPk(cityId);
+            return city  ;
         } catch (error) {
             console.log("something went wrong in the repository layer ");
-            throw (error);
+            throw {error};
+
+        }
+
+    }
+    async getAllCities(filter) {
+        try {
+            if(filter.name){
+                const cities = await City.find({
+                    where:{
+                         [Op.startsWith] : filter.name 
+                    }
+                });
+                return cities ;
+            }
+            const city = await City.findAll(  );
+            return city  ;
+        } catch (error) {
+            console.log("something went wrong in the repository layer ");
+            throw {error};
 
         }
 
