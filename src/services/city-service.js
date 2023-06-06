@@ -1,6 +1,6 @@
 const { CityRepository } = require('../repository/index');
 
-class CityService{
+class CityService {
     constructor(){
         this.cityRepository = new CityRepository();
     }
@@ -12,11 +12,10 @@ class CityService{
 
         }catch(error){
             console.log("Something went wrong at services layer ")
-            throw{error};
-
+            throw {error};
         }
-
     }
+
     async deleteCity(cityId){
         try{
               const response = await this.cityRepository.deleteCity(cityId);
@@ -70,4 +69,4 @@ class CityService{
 
 }
 
-module.exports = CityService
+module.exports = CityService ;

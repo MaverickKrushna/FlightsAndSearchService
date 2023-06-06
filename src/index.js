@@ -30,9 +30,9 @@ const setupAndStartServer = async ()=>{
     //     name : "New Delhi",
     // });
 
-    const repo = new CityRepository();
-    repo.createCity({name: "New Delhi "});
-    repo.deleteCity(1);
+    // const repo = new CityRepository();
+    // repo.createCity({name: "New Delhi "});
+    // repo.deleteCity(1);
     });
 
    

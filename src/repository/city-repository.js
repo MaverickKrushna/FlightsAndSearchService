@@ -3,18 +3,22 @@ const {Op} = require('sequelize');
 
 
 class CityRepository {
-    async createCity({ name }) {
+    async createCity({name}) {
         try {
             const city = await City.create({
-                name
-
+                name 
             });
             return city;
-        } catch (error) {
-            console.log("something went wrong in the repository layer ");
+           }catch (error) {
+            console.log("something went wrong in the repository layer");
             throw {error};
-        }
+        } 
     }
+    //  async create(data) {
+    //     const response = await this.model.create(data);
+    //     return response;
+    // }
+
 
     async deleteCity(cityId) {
         try {
