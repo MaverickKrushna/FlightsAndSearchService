@@ -52,3 +52,12 @@ and the execute
   -  A flight belongd to an  airplane but one airplane can be used in multiple flights 
   -A city has many airports but one airport belongs to a city 
   - One airport csn have many flights, but a flight belongs to one  airport 
+
+  ## Tables 
+  ### City -> id , name ,created_at , update_at 
+  ### Airport -> id , name  , adress , city_id , created_at , update_at    belongs to city (one to many)
+  Relationship -> City has many airport and Airport belongs to city (one to many) 
+  ``````
+   npx sequelize model:genrate --name Airport --attributes name:String , address:String , cityId:integer
+
+  ```````

@@ -34,6 +34,10 @@ const setupAndStartServer = async ()=>{
     // const repo = new CityRepository();
     // repo.createCity({name: "New Delhi "});
     // repo.deleteCity(1);
+
+    if(process.env.SYNC_DB){
+        db.sequelize.sync({alter:true})
+    }
     });
 
    
