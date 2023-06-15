@@ -27,7 +27,7 @@ class FlightRespository{
         if(data.maxPrice){
             priceFilter.push({price :{[Op.lte] : data.maxPrice}})
         }
-        console.log(filter)
+        console.log(filter )
         return filter ;
     }
 
